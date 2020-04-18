@@ -3,14 +3,14 @@ import React, { Fragment, useState } from "react";
 const EditTodo = ({ todo }) => {
   //editText function
 
-  const editText = async id => {
+  const editText = async (id) => {
     try {
       const body = { description };
 
       const res = await fetch(`http://localhost:5000/todos/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body)
+        body: JSON.stringify(body),
       });
 
       window.location = "/";
@@ -55,7 +55,7 @@ const EditTodo = ({ todo }) => {
                 type="text"
                 className="form-control"
                 value={description}
-                onChange={e => setDescription(e.target.value)}
+                onChange={(e) => setDescription(e.target.value)}
               />
             </div>
 
