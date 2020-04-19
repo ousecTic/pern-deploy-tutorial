@@ -8,18 +8,18 @@ const ListTodos = () => {
 
   async function deleteTodo(id) {
     try {
-      const res = await fetch(`http://localhost:5000/todos/${id}`, {
-        method: "DELETE"
+      const res = await fetch(`/todos/${id}`, {
+        method: "DELETE",
       });
 
-      setTodos(todos.filter(todo => todo.todo_id !== id));
+      setTodos(todos.filter((todo) => todo.todo_id !== id));
     } catch (err) {
       console.error(err.message);
     }
   }
 
   async function getTodos() {
-    const res = await fetch("http://localhost:5000/todos");
+    const res = await fetch("/todos");
 
     const todoArray = await res.json();
 
@@ -50,7 +50,7 @@ const ListTodos = () => {
             <td>john@example.com</td>
           </tr> */}
 
-          {todos.map(todo => (
+          {todos.map((todo) => (
             <tr key={todo.todo_id}>
               <td>{todo.description}</td>
               <td>

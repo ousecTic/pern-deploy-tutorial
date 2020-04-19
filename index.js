@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json()); // => allows us to access the req.body
 
 // app.use(express.static(path.join(__dirname, "client/build")));
-// app.use(express.static("./client/build"));
+app.use(express.static("./client/build"));
 
 if (process.env.NODE_ENV === "production") {
   //server static content
@@ -98,6 +98,10 @@ app.delete("/todos/:id", async (req, res) => {
   } catch (err) {
     console.error(err.message);
   }
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build/index.html"));
 });
 
 app.listen(PORT, () => {
