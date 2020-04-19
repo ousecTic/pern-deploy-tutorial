@@ -1,4 +1,4 @@
-CREATE DATABASE pernstack;
+-- CREATE DATABASE pernstack;
 
 --\c pernstack
 
